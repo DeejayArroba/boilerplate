@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 
@@ -23,6 +24,10 @@ gulp.task('jade', function() {
 gulp.task('sass', function() {
   return gulp.src('app/css/**/*.sass')
   .pipe(sass())
+  .pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
   .pipe(gulp.dest('dist/css/'))
   .pipe(browserSync.stream())
 })
