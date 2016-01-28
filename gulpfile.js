@@ -6,15 +6,9 @@ var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 
-var staticSources = ['app/**/*',
-  '!app/**/*.js',
-  '!app/**/*.sass',
-  '!app/**/*.jade'
-];
-
 // Export jade
 gulp.task('jade', function() {
-  return gulp.src('app/**/*.jade')
+  return gulp.src('app/jade/**/*.jade')
     .pipe(jade())
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
@@ -34,7 +28,7 @@ gulp.task('sass', function() {
 
 // Export javascript
 gulp.task('js', function() {
-  return gulp.src('app/**/*.js')
+  return gulp.src('app/js/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
@@ -42,7 +36,7 @@ gulp.task('js', function() {
 
 // Export static files
 gulp.task('static', function() {
-  return gulp.src(staticSources)
+  return gulp.src('app/static/**/*')
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
 })
@@ -69,5 +63,5 @@ gulp.task('live', ['dist'], function() {
   gulp.watch('app/**/*.jade', ['jade'])
   gulp.watch('app/**/*.sass', ['sass'])
   gulp.watch('app/**/*.js', ['js'])
-  gulp.watch(staticSources, ['static'])
+  gulp.watch('app/static/**/*', ['static'])
 })
