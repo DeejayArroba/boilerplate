@@ -28,9 +28,14 @@ gulp.task('sass', function() {
 
 // Export javascript
 gulp.task('js', function() {
-  return gulp.src('app/js/**/*.js')
+  var js = gulp.src(['app/js/**/*.js', '!app/js/libs/**/*'])
     .pipe(uglify())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/js'))
+    .pipe(browserSync.stream())
+
+  var libs = gulp.src('app/js/libs/**/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream())
 })
 
@@ -60,8 +65,8 @@ gulp.task('live', ['dist'], function() {
   })
 
   // Watchers
-  gulp.watch('app/**/*.jade', ['jade'])
-  gulp.watch('app/**/*.sass', ['sass'])
-  gulp.watch('app/**/*.js', ['js'])
+  gulp.watch('app/jade/**/*.jade', ['jade'])
+  gulp.watch('app/css/**/*.sass', ['sass'])
+  gulp.watch('app/js/**/*.js', ['js'])
   gulp.watch('app/static/**/*', ['static'])
 })
