@@ -29,17 +29,10 @@ gulp.task('sass', function() {
 
 // Export javascript
 gulp.task('js', function() {
-  var js = gulp.src(['app/js/**/*.js', '!app/js/libs/**/*'])
+  return gulp.src('app/js/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream())
-
-  var libs = gulp.src('app/js/libs/**/*.js')
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/js'))
-    .pipe(browserSync.stream())
-
-  return merge(js, libs)
 })
 
 // Export static files

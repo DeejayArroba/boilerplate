@@ -12,8 +12,7 @@ gulp clean|Deletes the dist directory
 
 Development directory|Directory description|Distribution directory
 ---------------------|---------------------|----------------------
-app/static|Contains static files (example: images, css, fonts)|dist
+app/static|Contains static files (example: images, js libraries, css, fonts)|dist
 app/sass|Contains SASS files|dist/css
 app/jade|Contains jade files|dist
 app/js|Contains your javascript files (will be uglified)|dist/js
-app/js/libs|Contains javascript libraries (won't be uglified)|dist/js
