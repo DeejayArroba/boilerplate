@@ -16,7 +16,7 @@ gulp.task('jade', function() {
 
 // Export sass
 gulp.task('sass', function() {
-  return gulp.src('app/css/**/*.sass')
+  return gulp.src('app/sass/**/*.sass')
     .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
@@ -66,7 +66,7 @@ gulp.task('live', ['dist'], function() {
 
   // Watchers
   gulp.watch('app/jade/**/*.jade', ['jade'])
-  gulp.watch('app/css/**/*.sass', ['sass'])
+  gulp.watch('app/sass/**/*.sass', ['sass'])
   gulp.watch('app/js/**/*.js', ['js'])
   gulp.watch('app/static/**/*', ['static'])
 })
