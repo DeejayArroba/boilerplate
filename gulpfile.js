@@ -3,6 +3,7 @@ var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
+var merge = require('merge-stream');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 
@@ -37,6 +38,8 @@ gulp.task('js', function() {
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream())
+
+  return merge(js, libs)
 })
 
 // Export static files
