@@ -2,7 +2,6 @@
   "name": "boilerplate",
   "version": "0.0.0",
   "description": "Starting point for creating websites.",
-  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.11.1",
