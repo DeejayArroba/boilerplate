@@ -5,7 +5,7 @@ Front end starting point for creating websites with jade and sass
 Task|Description
 ----|-----------
 gulp dist|Packages the project in the dist directory
-gulp live|Packages the project in the dist directory and launches BrowserSync to live refresh the project in the browser
+gulp live|Executes ´gulp dist´ and uses BrowserSync to live refresh the project in the browser
 gulp clean|Deletes the dist directory
 
 ## File destinations
